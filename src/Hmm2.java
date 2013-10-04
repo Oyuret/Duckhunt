@@ -37,26 +37,45 @@ public class Hmm2 {
         hmm.parseInitial(b.get(2));
         hmm.parseSequence(b.get(3));
         
-        double prob = hmm.getForwardProb();
-        System.out.println(prob);
-        double prob2 = hmm.getBackWardProb();
-        System.out.println(prob2);
+//        double prob = hmm.getForwardProb();
+//        System.out.println(prob);
+//        double prob2 = hmm.getBackWardProb();
+//        System.out.println(prob2);
+//        
+//        Viterbi test = new Viterbi(hmm);
+//        ArrayList<Integer> test2 = test.getStateSeq(hmm.sequence);
+//        
+//        StringBuilder newB = new StringBuilder();
+//        for(int i : test2) {
+//            newB.append(i);
+//            newB.append(" ");
+//        }
+//        System.out.println(newB.toString().trim());
         
-        Viterbi test = new Viterbi(hmm);
-        ArrayList<Integer> test2 = test.getStateSeq(hmm.sequence);
+        //hmm.forwardProc();
+        //hmm.backwardProc();
+        //System.out.println(hmm.test());
+        double oldlogprob = Double.NEGATIVE_INFINITY;
+        //double logprob = hmm.test();
         
-        StringBuilder newB = new StringBuilder();
-        for(int i : test2) {
-            newB.append(i);
-            newB.append(" ");
-        }
-        System.out.println(newB.toString().trim());
         
-        for(int i=0; i<1000; i++) {
+        for(int i=0; i<100; i++) {
+//            if(logprob < oldlogprob) {
+//                break;
+//            }
+            //oldlogprob = logprob;
             hmm.train();
+            //logprob = hmm.test();
+            
         }
         
-        System.out.println("Här!");
+        //System.out.println(hmm.test());
+        
+        
+//        prob = hmm.getForwardProb();
+//        System.out.println(prob);
+        System.out.println(hmm.printTransition());
+        System.out.println(hmm.printEmission());
 
 
     }
