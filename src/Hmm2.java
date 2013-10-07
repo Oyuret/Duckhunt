@@ -55,19 +55,16 @@ public class Hmm2 {
         //hmm.forwardProc();
         //hmm.backwardProc();
         //System.out.println(hmm.test());
-        double oldlogprob = Double.NEGATIVE_INFINITY;
+        //double oldlogprob = Double.NEGATIVE_INFINITY;
         //double logprob = hmm.test();
         
         
-        for(int i=0; i<100; i++) {
-//            if(logprob < oldlogprob) {
-//                break;
-//            }
-            //oldlogprob = logprob;
+        for(int i=0; i<500; i++) {
+            
             hmm.train();
-            //logprob = hmm.test();
             
         }
+        
         
         //System.out.println(hmm.test());
         

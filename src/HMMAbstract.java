@@ -16,11 +16,6 @@ public abstract class HMMAbstract {
     public double[][] emission;
     public double[] initial;
     public int[] sequence;
-    public double[] c;
-    public double[][] alpha;
-    public double[][] beta;
-    public double[][] gamma;
-    public double[][][] digamma;
 
     public void parseTransition(String b) {
 
@@ -44,7 +39,7 @@ public abstract class HMMAbstract {
         // add the numbers to the transition matrix
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                transition[i][j] = Math.log(Double.parseDouble(transNumbers[(i * columns) + j]));
+                transition[i][j] = Double.parseDouble(transNumbers[(i * columns) + j]);
             }
         }
 
@@ -72,7 +67,7 @@ public abstract class HMMAbstract {
         // add the numbers to the transition matrix
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                emission[i][j] = Math.log(Double.parseDouble(emissionNumbers[(i * columns) + j]));
+                emission[i][j] = Double.parseDouble(emissionNumbers[(i * columns) + j]);
             }
         }
 
@@ -97,7 +92,7 @@ public abstract class HMMAbstract {
 
         // add the numbers to the transition matrix
         for (int i = 0; i < columns; i++) {
-            initial[i] = Math.log(Double.parseDouble(initialNumbers[i]));
+            initial[i] = Double.parseDouble(initialNumbers[i]);
         }
     }
 
@@ -126,7 +121,6 @@ public abstract class HMMAbstract {
 
     public String printTransition() {
         StringBuilder transitionout = new StringBuilder();
-        DecimalFormat df = new DecimalFormat("#.######");
 
         // Add the dimensions
         transitionout.append(transition.length);
@@ -136,7 +130,7 @@ public abstract class HMMAbstract {
 
         for (double[] row : transition) {
             for (double column : row) {
-                transitionout.append(df.format(Math.exp(column)));
+                transitionout.append(column);
                 transitionout.append(" ");
             }
         }
@@ -149,17 +143,16 @@ public abstract class HMMAbstract {
     
     public String printEmission() {
         StringBuilder transitionout = new StringBuilder();
-        DecimalFormat df = new DecimalFormat("#.######");
 
         // Add the dimensions
-        transitionout.append(transition.length);
+        transitionout.append(emission.length);
         transitionout.append(" ");
-        transitionout.append(transition[0].length);
+        transitionout.append(emission[0].length);
         transitionout.append(" ");
 
         for (double[] row : emission) {
             for (double column : row) {
-                transitionout.append(df.format(Math.exp(column)));
+                transitionout.append(column);
                 transitionout.append(" ");
             }
         }
@@ -188,6 +181,7 @@ public abstract class HMMAbstract {
             }
         }
         // Now diff <= 0 so Math.exp(diff) will not overflow
-        return max + (diff < -37 ? 0 : Math.log(1 + Math.exp(diff)));
+        //return max + (diff < -37 ? 0 : Math.log(1 + Math.exp(diff)));
+        return max + Math.log(1+Math.exp(diff));
     }
 }
