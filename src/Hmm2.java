@@ -52,18 +52,8 @@ public class Hmm2 {
 //        }
 //        System.out.println(newB.toString().trim());
         
-        //hmm.forwardProc();
-        //hmm.backwardProc();
-        //System.out.println(hmm.test());
-        //double oldlogprob = Double.NEGATIVE_INFINITY;
-        //double logprob = hmm.test();
         
-        
-        for(int i=0; i<500; i++) {
-            
-            hmm.train();
-            
-        }
+        double test = hmm.train();
         
         
         //System.out.println(hmm.test());
@@ -73,6 +63,7 @@ public class Hmm2 {
 //        System.out.println(prob);
         System.out.println(hmm.printTransition());
         System.out.println(hmm.printEmission());
+        System.out.println(test);
 
 
     }
