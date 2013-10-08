@@ -1,4 +1,5 @@
 
+import com.sun.org.apache.bcel.internal.generic.GETFIELD;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,8 +43,10 @@ public class Hmm2 {
 //        double prob2 = hmm.getBackWardProb();
 //        System.out.println(prob2);
 //        
-//        Viterbi test = new Viterbi(hmm);
-//        ArrayList<Integer> test2 = test.getStateSeq(hmm.sequence);
+        
+        double test = hmm.train();
+//        Viterbi test1 = new Viterbi(hmm);
+//        ArrayList<Integer> test2 = test1.getStateSeq(hmm.sequence);
 //        
 //        StringBuilder newB = new StringBuilder();
 //        for(int i : test2) {
@@ -53,7 +56,7 @@ public class Hmm2 {
 //        System.out.println(newB.toString().trim());
         
         
-        double test = hmm.train();
+        hmm.getMostProbableEmission();
         
         
         //System.out.println(hmm.test());
