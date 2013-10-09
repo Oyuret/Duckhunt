@@ -11,11 +11,26 @@ import java.util.ArrayList;
  */
 public class HMM extends HMMAbstract {
 
+    public HMM(String transition, String emission, String initial, int[] sequence) {
+        parseInitial(initial);
+        parseEmission(emission);
+        parseTransition(transition);
+        this.sequence = sequence;
+    }
+    
     public HMM() {
+        
+    }
+    
+    public HMM(double[][] transition, double[][] emission, double[] initial, int[] sequence) {
+        this.transition = transition;
+        this.emission = emission;
+        this.initial = initial;
+        this.sequence = sequence;
     }
 
     public double train() {
-        int maxIters = 100;
+        int maxIters = 50;
         int iters = 0;
         double oldLogProb = Double.NEGATIVE_INFINITY;
         double logprob = Double.NEGATIVE_INFINITY;

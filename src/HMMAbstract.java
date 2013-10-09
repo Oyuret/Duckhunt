@@ -161,27 +161,27 @@ public abstract class HMMAbstract {
         return transitionout.toString();
     }
     
-    public double logplus(double plog, double qlog) {
-        double max, diff;
-        if (plog > qlog) {
-            if (qlog == Double.NEGATIVE_INFINITY) {
-                return plog;
-            } else {
-                max = plog;
-                diff = qlog - plog;
-            }
-        } else {
-            if (plog == Double.NEGATIVE_INFINITY) {
-                return qlog;
-            } else {
-                max = qlog;
-                diff = plog - qlog;
-            }
-        }
-        // Now diff <= 0 so Math.exp(diff) will not overflow
-        //return max + (diff < -37 ? 0 : Math.log(1 + Math.exp(diff)));
-        return max + Math.log(1+Math.exp(diff));
-    }
+//    public double logplus(double plog, double qlog) {
+//        double max, diff;
+//        if (plog > qlog) {
+//            if (qlog == Double.NEGATIVE_INFINITY) {
+//                return plog;
+//            } else {
+//                max = plog;
+//                diff = qlog - plog;
+//            }
+//        } else {
+//            if (plog == Double.NEGATIVE_INFINITY) {
+//                return qlog;
+//            } else {
+//                max = qlog;
+//                diff = plog - qlog;
+//            }
+//        }
+//        // Now diff <= 0 so Math.exp(diff) will not overflow
+//        //return max + (diff < -37 ? 0 : Math.log(1 + Math.exp(diff)));
+//        return max + Math.log(1+Math.exp(diff));
+//    }
     
     public double BaumWelch() {
         int N = initial.length;

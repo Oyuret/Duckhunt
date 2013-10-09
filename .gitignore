@@ -9,3 +9,4 @@ manifest.mf
 *.jar
 *.war
 *.ear
+/dist/
