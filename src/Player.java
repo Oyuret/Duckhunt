@@ -33,7 +33,7 @@ class Player {
          * Here you should write your clever algorithms to get the best action.
          * This skeleton never shoots.
          */
-        if(pState.getBird(0).getSeqLength() < 50) return cDontShoot;
+        if(pState.getBird(0).getSeqLength() < 45) return cDontShoot;
         
         numOfBirds = pState.getNumBirds();
         ArrayList<HMM> birds = new ArrayList<>();
