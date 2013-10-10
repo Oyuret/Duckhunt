@@ -6,7 +6,7 @@ class Player {
 
     int numOfBirds;
     double hmmStability = 0.0;
-    double moveStability = 0.70;
+    double moveStability = 0.75;
 
     // /There is no data in the beginning, so not much should be done here.
     public Player() {
