@@ -5,7 +5,7 @@ class Player {
     // /constructor
 
     int numOfBirds;
-    double hmmStability = 0.70;
+    double hmmStability = 0.0;
     double moveStability = 0.70;
 
     // /There is no data in the beginning, so not much should be done here.
@@ -33,6 +33,8 @@ class Player {
          * Here you should write your clever algorithms to get the best action.
          * This skeleton never shoots.
          */
+        if(pState.getBird(0).getSeqLength() < 50) return cDontShoot;
+        
         numOfBirds = pState.getNumBirds();
         ArrayList<HMM> birds = new ArrayList<>();
         double[] birdStability = new double[numOfBirds];
@@ -59,7 +61,7 @@ class Player {
 
         // Pick the most stable hmm
         int mostStable = -1;
-        double stability = Double.NEGATIVE_INFINITY;
+        double stability = 0;
         for (int i = 0; i < numOfBirds; i++) {
             if (pState.getBird(i).isAlive() && birdStability[i] > stability) {
                 stability = birdStability[i];
@@ -68,7 +70,7 @@ class Player {
         }
 
         // If this hmm was stable enough
-        if (stability >= hmmStability) {
+        if (stability > hmmStability) {
             double[] emissions = birds.get(mostStable).getMostProbableEmission();
 
             // Check which emission is the most probable

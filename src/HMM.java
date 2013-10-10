@@ -33,13 +33,14 @@ public class HMM extends HMMAbstract {
         int maxIters = 50;
         int iters = 0;
         double oldLogProb = Double.NEGATIVE_INFINITY;
-        double logprob = Double.NEGATIVE_INFINITY;
+        double logprob = BaumWelch();
 
-        while (iters < maxIters && logprob >= oldLogProb) {
+        while (iters < maxIters && logprob > oldLogProb) {
             oldLogProb = logprob;
             logprob = BaumWelch();
             iters++;
         }
+        
         return Math.exp(logprob);
     }
 
