@@ -14,11 +14,11 @@ public class Initials {
     //Hunting
     //Drilling
     //Zig-zag
-    public static final String initialTransition = "5 5 0.20 0.20 0.20 0.20 0.20 "
-            +                                          "0.20 0.20 0.20 0.20 0.20 "
-            +                                          "0.20 0.20 0.20 0.20 0.20 "
-            +                                          "0.20 0.20 0.20 0.20 0.20 "
-            +                                          "0.20 0.20 0.20 0.20 0.20";
+    public static final String initialTransition = "5 5 0.60 0.10 0.10 0.10 0.10 "
+            +                                          "0.10 0.60 0.10 0.10 0.10 "
+            +                                          "0.10 0.10 0.60 0.10 0.10 "
+            +                                          "0.10 0.10 0.10 0.60 0.10 "
+            +                                          "0.10 0.10 0.10 0.10 0.60";
     
     //              up-left, up, up-right, left, stopped, right, down-left, down, down-right
     //Migrating
